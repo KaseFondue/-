@@ -1,0 +1,48 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Aug 21 21:50:18 2020
+
+@author: yao71
+"""
+
+import pandas as pd
+import random
+df = pd.read_excel('C:/Users/yao71/OneDrive - stu.jxufe.edu.cn/36套单词-1.xlsx')
+df = df.sort_values('熟练度',ascending = True)
+n = 0
+while n < 1:
+    low = df['熟练度'].min()
+    df_low = df[df.熟练度 == low]
+    df_low.reset_index(inplace=True,drop=True)
+    A,B,C,D= random.sample(range(1,len(df_low)),4)
+    AL = [df_low.loc[A,'中文'],df_low.loc[B,'中文'],df_low.loc[C,'中文'],df_low.loc[D,'中文'],df_low.loc[0,'中文']]
+    print('英文：',df_low.loc[0,'单词'])
+    NUM = [0,1,2,3,4]
+    SA,SB,SC,SD,SE = random.sample(range(0,5),5)
+    print(SA)
+    print(SB)
+    print(SC)
+    print(SD)
+    print(SE)
+    AL
+    print('A:',AL[NUM[SA]])
+    print('B:',AL[NUM[SB]])
+    print('C:',AL[NUM[SC]])
+    print('D:',AL[NUM[SD]])
+    print('E:',AL[NUM[SE]])
+    y = input()
+    if y == 'A':
+        key = 0
+    elif y == 'B':
+        key == 1
+    elif y == 'C':
+        key == 2
+    elif y == 'D':
+        key == 3
+    elif key == 'E':
+        key == 4
+    if AL[NUM[key]] == df_low.loc[0,'单词']:
+        print('正确')
+        df_low.loc[0,'']
+
+AL[1]
